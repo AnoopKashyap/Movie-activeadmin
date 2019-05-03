@@ -21,7 +21,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :comments
+  has_many :user_comments
   validates :email, :password, :first_name, :last_name, presence: true
 
   def full_name

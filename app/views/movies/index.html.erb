@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <body style="background-color:rgb(32, 29, 29)">
+    <div class="logo">
+      <img src="/assets/logo.png"/>
+      <div class="site-title">
+        Movie Store
+        <br/>
+        <small class="site-description">Welcome to the movie world!!</small>
+      </div>
+      <% if user_signed_in? %>
+        <button class="btn btn-warning" type="button">
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        </button>
+      <% else %>
+        <button class="btn btn-warning" type="button">
+          <%= link_to 'Sign in', new_user_session_path %>
+        </button>
+      <% end %>
+    </div>
+    <div class="container">
+      <% @movies.each do |movie| %>
+        <div class="a">
+          <div class="card" style="width:250px">
+            <img class="card-img-top"/>
+            <%= image_tag movie.wallpaper.url(:medium) %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= movie.name %>
+              </h4>
+              <p class="card-text">
+                Releasing: <%= movie.release_date %>
+              </p>
+              <p class="card-text">
+                <%= movie.genre %>
+              </p>
+              <a class="btn btn-primary" href="/movies/<%= movie.id %>">Find More!</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

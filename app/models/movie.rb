@@ -22,7 +22,7 @@
 class Movie < ApplicationRecord
   has_many :movie_stars
   has_many :stars, through: :movie_stars
-  has_many :comments
+  has_many :user_comments
 
   has_attached_file :wallpaper, styles: { medium: '200x200', thumb: '100x100>' }
 

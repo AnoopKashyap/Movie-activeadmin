@@ -1,0 +1,78 @@
+<body style="background-color:rgb(32, 29, 29)"></body>
+<div class="show">
+  <h1>Showing the selected Movie</h1>
+  <p>
+    Movie Name: <%= @movie.name %>
+  </p>
+  <p>
+    Release Date: <%= @movie.release_date %>
+  </p>
+  <p>
+    Star Cast:
+    <% @stars.each do |star| %>
+      <tr></tr>
+      <td>
+        <%= star.name %>
+      </td>
+      <br/>
+    <% end %>
+  </p>
+  <p>
+    Short Description: <%=@movie.short_description%>
+  </p>
+  <p>
+    Description: <%=@movie.description%>
+  </p>
+  <p>
+    Genre: <%=@movie.genre%>
+  </p>
+  <p>
+    Recommended:
+    <%= @movie.recommended ? 'Yes' : 'No' %>
+  </p>
+  <p>
+    Age Bar: <%=@movie.age_bar%>
+  </p>
+  <p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      User Reviews
+    </button>
+  </p>
+  <br/>
+  <br/>
+  <div class="collapse" id="collapseExample">
+    <nav aria-label= "breadcrumb">
+      <% @comments.each do |comment| %>
+        <div class="review-block">
+          <div class="row">
+            <div class="col-sm-3">
+              <img class="img-rounded" src="http://dummyimage.com/60x60/666/ffffff&text=No+Image"/>
+              <div class="review-block-name">
+                <%= comment.user.first_name %>
+                <%= comment.user.last_name %>
+              </div>
+              <div class="review-block-date">
+                <%= comment.created_at.strftime('%Y-%m-%d') %>
+              </div>
+              <br/>
+            </div>
+            <div class="review-block-title">
+              <%= comment.review %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </nav>
+  </div>
+  <p>
+    <%= form_tag("/usercomments", method: "post") do %>
+      <%= hidden_field(:current_user, :id) %>
+      <%= hidden_field(:movie, :id) %>
+      <%= label_tag(:review, "Submit Review:") %>
+      <%= text_field_tag(:review) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+    <br/>
+    <a href="/movies">Back</a>
+  </p>
+</div>

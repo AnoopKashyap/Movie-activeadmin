@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'activeadmin'
 # gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap-sass', '>= 3.4.1'
 # Use CoffeeScript for .coffee assets and views
@@ -20,7 +21,8 @@ gem 'pg', '>= 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.0'
-gem 'rails_admin'
+# gem 'rails_admin'
+
 gem 'rubocop'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

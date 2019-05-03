@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = UserComment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.movie_id = params[:movie][:id]
 
