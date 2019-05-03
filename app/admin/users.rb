@@ -11,6 +11,10 @@ index do
     column :last_name
     actions
 end
+
+remove_filter :user_comments
+
+
 # or
 #
 # permit_params do

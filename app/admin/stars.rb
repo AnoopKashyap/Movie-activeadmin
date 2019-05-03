@@ -11,6 +11,12 @@ ActiveAdmin.register Star do
     column :description
     actions
   end
+
+  filter :movies
+  filter :name
+  filter :role, as: :select, collection: {'Hero' => 0, 'Heroine' => 1, 'Director' => 2, 'Producer' => 3, 'Suppoting actor' => 4}
+  filter :created_at
+  filter :updated_at
 # or
 #
 # permit_params do

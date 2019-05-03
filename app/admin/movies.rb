@@ -13,6 +13,13 @@ ActiveAdmin.register Movie do
      column :genre
      actions
    end
+
+  filter :stars
+  filter :genre, as: :select, collection: {'Action' => 0, 'Love' => 1, 'Drama' => 2, 'Comedy' => 3, 'Thriller' => 4}
+  filter :recommended, as: :check_boxes
+  filter :age_bar
+  filter :created_at
+  filter :updated_at
 #
 # or
 #

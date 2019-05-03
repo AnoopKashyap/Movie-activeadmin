@@ -11,6 +11,9 @@ index do
     column :review
     actions
 end
+
+remove_filter :review
+
 # or
 #
 # permit_params do
