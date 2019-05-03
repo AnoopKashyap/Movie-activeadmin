@@ -1,4 +1,5 @@
 # Controller for user comments on the movie.
+# Comments controller
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 

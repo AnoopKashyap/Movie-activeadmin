@@ -4,6 +4,10 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.before_filter do
+    params.permit!
+  end
+  
   config.site_title = "Movies"
 
   # Set the link url for the title. For example, to take
