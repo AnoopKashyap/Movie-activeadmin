@@ -2,7 +2,17 @@ ActiveAdmin.register Movie do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+ #permit_params :name, :role, :age, :description
+  index do
+     selectable_column
+     id_column
+     column :name
+     column :release_date
+     column :short_description
+     column :description
+     column :genre
+     actions
+   end
 #
 # or
 #

@@ -3,7 +3,14 @@ ActiveAdmin.register UserComment do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 # permit_params :list, :of, :attributes, :on, :model
-#
+index do
+    selectable_column
+    id_column
+    column :user
+    column :movie
+    column :review
+    actions
+end
 # or
 #
 # permit_params do
